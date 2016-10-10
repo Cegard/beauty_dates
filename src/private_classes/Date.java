@@ -3,21 +3,20 @@ package private_classes;
 
 public class Date {
 	
-	
 	private Day day;
 	private Month month;
 	private Year year;
 	
 	
-	public Date(){
-		this.day = new Day();
+	public Date(int _day){
+		this.day = new Day(_day);
 		this.month = new Month();
 		this.year = new Year();
 	}
 	
 	
-	public Day getDay(){
-		return this.day;
+	public Integer getDay(){
+		return this.day.day;
 	}
 	
 	
@@ -33,6 +32,20 @@ public class Date {
 	
 	private class Day{
 		
+		public Integer day;
+		
+		
+		public Day(int value){
+			
+			if (value > 0 && value < 32)
+				this.day = value;
+				
+			else if (value >= 32)
+				this.day = 31;
+			
+			else
+				this.day = 1;
+		}
 	}
 	
 	
