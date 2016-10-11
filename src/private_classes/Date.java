@@ -8,20 +8,20 @@ public class Date {
 	private Year year;
 	
 	
-	public Date(int _day){
+	public Date(int _day, int _month){
 		this.day = new Day(_day);
-		this.month = new Month();
+		this.month = new Month(_month);
 		this.year = new Year();
 	}
 	
 	
 	public Integer getDay(){
-		return this.day.day;
+		return this.day.value;
 	}
 	
 	
-	public Month getMonth(){
-		return this.month;
+	public Integer getMonth(){
+		return this.month.value;
 	}
 	
 	
@@ -32,25 +32,31 @@ public class Date {
 	
 	private class Day{
 		
-		public Integer day;
+		public Integer value;
 		
 		
-		public Day(int value){
+		public Day(int day){
 			
-			if (value > 0 && value < 32)
-				this.day = value;
+			if (day > 0 && day < 32)
+				this.value = day;
 				
-			else if (value >= 32)
-				this.day = 31;
+			else if (day >= 32)
+				this.value = 31;
 			
 			else
-				this.day = 1;
+				this.value = 1;
 		}
 	}
 	
 	
-	private class Month{
+	public class Month{
 		
+		public int value;
+		
+		
+		public Month(int month){
+			this.value = month;
+		}
 	}
 	
 	
